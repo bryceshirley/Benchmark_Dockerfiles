@@ -1,0 +1,35 @@
+# Use the official Ubuntu base image
+FROM ubuntu:20.04
+
+# Set the working directory
+WORKDIR /root
+
+# Set non-interactive frontend for apt-get
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install required dependencies
+RUN apt-get update && \
+    apt-get install -y wget python3-pip git tmux jq && \
+    apt-get clean
+
+# Install pip
+RUN pip install --upgrade pip
+
+# Install yq (if needed, adjust based on availability)
+RUN pip install yq
+
+# Set the TERM environment variable
+ENV TERM=xterm
+
+# Download and install Anaconda
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2023.03-Linux-x86_64.sh && \
+    bash Anaconda3-2023.03-Linux-x86_64.sh -b && \
+    rm -rf Anaconda3-2023.03-Linux-x86_64.sh
+
+# Initialize Conda
+RUN /root/anaconda3/bin/conda init && \
+    /bin/bash -c "source /root/.bashrc" && \
+    /root/anaconda3/bin/conda create --name bench python=3.9 -y
+
+# Clone the GPU Performance Repo
+RUN /bin/bash -c "git clone https://github.com/bryceshirley/gpu_benchmark_metrics.git"

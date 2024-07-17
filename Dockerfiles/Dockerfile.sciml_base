@@ -1,0 +1,17 @@
+# Use the gpu_base image created earlier
+FROM gpu-base:latest
+
+# Set the working directory
+WORKDIR /root
+
+# Clone the SciML-Bench and Fix the Version Issue
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    git clone https://github.com/stfc-sciml/sciml-bench.git && \
+    cd sciml-bench/ && \
+    echo \"__version__='1.2.0'\" > sciml_bench/__init__.py && \
+    sed -i 's/version=version/version=\"1.2.0\"/' setup.py "
+
+# Install the Benchmark Suite
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    cd sciml-bench/ && \
+    pip install ."
