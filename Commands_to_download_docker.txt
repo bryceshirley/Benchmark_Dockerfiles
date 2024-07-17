@@ -5,83 +5,6 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo apt install nvidia-driver-535 -y
 
-
-# Build Docker file:
-sudo docker build -f Dockerfile.scimlbench -t gpu-benchmark .
-
-# Run Docker Container:
-sudo docker run --gpus all gpu-benchmark
-
-
-# Build Docker File with bases:
-sudo docker build -t gpu-base -f Dockerfile.gpu_base .
-sudo docker build -t sciml-base -f Dockerfile.sciml_base .
-sudo docker build -t synthetic-regression -f Dockerfile.synthetic_regression .
-
-# Run Docker Container:
-sudo docker run --gpus all synthetic-regression
-
-# Copy metrics file:
-sudo docker cp 9309a583aca9:/root/gpu_benchmark_metrics/results .
-
-# Output as it is admin priveldges:
-dnz75396@bs-scimlbench-a4000:~$ sudo cat metrics.yml 
-time: 40.118574142456055
-av_GPU_load: 89.1
-av_GPU_power: 129.73399999999998
-carbon_forcast: 166.0
-carbon_index: moderate
-date_time: '2024-07-16 17:48:10'
-max_GPU_power: 140.0
-total_GPU_Energy: 0.001540023130678468
-total_GPU_carbon: 0.25564383969262566
-dnz75396@bs-scimlbench-a4000:~$
-
-# ie:
-dnz75396@bs-scimlbench-a4000:~$ sudo docker cp 9309a583aca9:/root/gpu_benchmark_metrics/results/formatted_metrics.txt /home/dnz75396/
-Successfully copied 3.07kB to /home/dnz75396/
-dnz75396@bs-scimlbench-a4000:~$ sudo cat formatted_metrics.txt 
-Benchmark Score and GPU Energy Performance
-
-+-----------------------------------+----------+
-| Metric                            |    Value |
-+===================================+==========+
-| Benchmark Score (s)               | 40.1186  |
-+-----------------------------------+----------+
-| Total GPU Energy Consumed (kWh)   |  0.00154 |
-+-----------------------------------+----------+
-| Total GPU Carbon Emissions (gC02) |  0.25564 |
-+-----------------------------------+----------+
-
-Additional Information
-
-+----------------------------------------------+------------------------------+
-| Metric                                       | Value                        |
-+==============================================+==============================+
-| Average GPU Util. (for >0.00% GPU Util.) (%) | 89.10000                     |
-+----------------------------------------------+------------------------------+
-| Avg GPU Power (for >0.00% GPU Util.) (W)     | 129.73400 (max possible 140) |
-+----------------------------------------------+------------------------------+
-| Carbon Forcast (gCO2/kWh), Carbon Index      | 166.0, moderate              |
-+----------------------------------------------+------------------------------+
-| Carbon Intensity Reading Date & Time         | 2024-07-16 17:48:10          |
-+----------------------------------------------+------------------------------+
-
-dnz75396@bs-scimlbench-a4000:~$ 
-
-# Stop a Container:
-sudo docker stop <CONTAINER ID>
-
-# View Docker Containers:
-sudo docker ps -a
-
-# Delete a container:
-sudo docker rm <CONTAINER ID>
-
-# Delete all the containers:
-sudo docker rm $(sudo docker ps -a -q)
-
-
 # Fix as Run was not working:
 
 1. Ensure NVIDIA Docker Runtime is Installed
@@ -89,9 +12,6 @@ Make sure you have NVIDIA Docker runtime installed and configured on your system
 
 To install NVIDIA Docker runtime, follow the official documentation for your Linux distribution. Here's a general guide:
 
-Ubuntu / Debian
-bash
-Copy code
 # Add the NVIDIA Docker repository
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
