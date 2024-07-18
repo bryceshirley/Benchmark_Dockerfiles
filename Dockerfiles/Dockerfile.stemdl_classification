@@ -9,8 +9,41 @@ RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
     sciml-bench install stemdl_classification && \
     sciml-bench download stemdl_ds1"
 
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install torch>=1.2"
+
+#RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+#    pip install horovod>=0.19"
+
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install opencv-python"
+
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install h5py"
+
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install pytorch-lightning"
+
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install torchvision"
+
+RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
+    pip install scikit-learn"
+
+# Set the entry point command to activate environment and run version checks
+ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && \
+    python -c 'import sys; assert sys.version_info >= (3, 6), f\"Python version >= 3.6 required, but found {sys.version_info}\"' && \
+    python -c 'import torch; assert torch.__version__ >= \"1.2\", f\"PyTorch version >= 1.2 required, but found {torch.__version__}\"' && \
+    python -c 'import horovod; assert horovod.__version__ >= \"0.19\", f\"Horovod version >= 0.19 required, but found {horovod.__version__}\"' && \
+    python -c 'import cv2; assert cv2.__version__ >= \"3.4\", f\"opencv-python version >= 3.4 required, but found {cv2.__version__}\"' && \
+    python -c 'import h5py; assert h5py.__version__ >= \"3.0\", f\"h5py version >= 3.0 required, but found {h5py.__version__}\"' && \
+    python -c 'import pytorch_lightning as pl; assert pl.__version__ >= \"1.0\", f\"pytorch-lightning version >= 1.0 required, but found {pl.__version__}\"' && \
+    python -c 'import torchvision; assert torchvision.__version__ >= \"0.3\", f\"torchvision version >= 0.3 required, but found {torchvision.__version__}\"' && \
+    python -c 'import sklearn; assert sklearn.__version__ >= \"0.22\", f\"scikit-learn version >= 0.22 required, but found {sklearn.__version__}\"' && \
+    sciml-bench list --verify"]
+
 # Set the entrypoint to run the benchmark
-ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && cd /root/gpu_benchmark_metrics/ && ./monitor.sh 'stemdl_classification' --plot"]
+#ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && cd /root/gpu_benchmark_metrics/ && ./monitor.sh 'stemdl_classification' --plot"]
 
 # Verify it The benchmark runs by running "docker run --rm --name stemdl_classification --gpus all stemdl_classification:latest"
 #ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && sciml-bench list --verify"]
