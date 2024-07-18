@@ -3,7 +3,7 @@
 # Ensure a benchmark is provided
 if [ $# -eq 0 ]; then
     echo "Usage: $0 <benchmark>"
-    echo -e "\nAvailable benchmarks:\n   synthetic_regression\n" 
+    echo -e "\nAvailable benchmarks:\n  synthetic_regression\n  mnist_tf_keras\n  stemdl_classification (not working)"
     exit 1
 fi
 BENCHMARK="$1"

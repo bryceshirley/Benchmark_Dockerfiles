@@ -18,6 +18,8 @@ docker build -t synthetic_regression -f Dockerfiles/Dockerfile.synthetic_regress
 echo "Building stemdl_classification image..."
 docker build -t stemdl_classification -f Dockerfiles/Dockerfile.stemdl_classification .
 
-# Build slstr_cloud image using sciml_base as base
+# Build mnist_tf_keras image using sciml_base as base
+echo "Building mnist_tf_keras image..."
+docker build -t mnist_tf_keras -f Dockerfiles/Dockerfile.mnist_tf_keras .
 
 echo -e "Build process completed.\n"

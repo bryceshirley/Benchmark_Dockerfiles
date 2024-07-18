@@ -11,3 +11,6 @@ RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
 
 # Set the entrypoint to run the benchmark
 ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && cd /root/gpu_benchmark_metrics/ && ./monitor.sh 'stemdl_classification' --plot"]
+
+# Verify it The benchmark runs by running "docker run --rm --name stemdl_classification --gpus all stemdl_classification:latest"
+#ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && sciml-bench list --verify"]
