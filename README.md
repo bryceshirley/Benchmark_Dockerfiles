@@ -1,4 +1,4 @@
-# Benchmark_Dockerfiles
+# Benchmark Dockerfiles
 
 -----------
 ### Table of Contents
