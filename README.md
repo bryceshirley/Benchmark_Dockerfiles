@@ -90,4 +90,4 @@ GPU monitoring results; GPU power/energy usage, GPU utilization and real-time
 GPU carbon emissions from the benchmark run.
 
 For more information about the GPU monitoring tool used please visit:
-<[https://github.com/bryceshirley/gpu_benchmark_metrics](https://github.com/bryceshirley/gpu_benchmark_metrics#gpu-energy-and-carbon-performance-benchmarking)>
+[https://github.com/bryceshirley/gpu_benchmark_metrics](https://github.com/bryceshirley/gpu_benchmark_metrics#gpu-energy-and-carbon-performance-benchmarking)
