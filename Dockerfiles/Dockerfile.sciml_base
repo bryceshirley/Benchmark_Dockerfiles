@@ -1,5 +1,5 @@
 # Use the gpu_base image created earlier
-FROM gpu-base:latest
+FROM gpu_base:latest
 
 # Set the working directory
 WORKDIR /root
