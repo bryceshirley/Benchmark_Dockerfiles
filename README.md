@@ -12,50 +12,13 @@
 
 ## Set Up VM
 
-To run the benchmark Dockerfiles you must setup the VM first:
-
-1. **Install Docker**
+#### To run the benchmark Dockerfiles you must setup the VM by running:
 
 ```bash
-sudo apt update
-sudo apt install -y docker.io
-#sudo systemctl start docker
-#sudo systemctl enable docker
+./setup_vm.sh
 ```
 
-2. **Install Nvidia-Docker (CHECK THIS IS CORRECT)**
-
-```sh
-# Add the NVIDIA Docker repository
-#curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-#distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-#curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-
-# Update and install NVIDIA Docker
-sudo apt-get update
-sudo apt-get install -y nvidia-docker2
-sudo systemctl restart docker
-```
-
-3. **Add USR to docker-user-group**
-
-```sh
-USR=$(whoami)
-sudo groupadd docker
-sudo usermod -aG docker $USER
-```
-
-4. **Install Nvidia Drivers**
-
-```bash
-sudo apt install nvidia-driver-535 -y
-```
-
-5. **Reboot VM to Finish Setup**
-
-```bash
-sudo reboot
-```
+This will reboot your VM and once your VM is back up it will be ready to go!
 
 -----------
 
