@@ -2,11 +2,11 @@
 
 -----------
 ### Table of Contents
-[Set Up VM](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#set-up-vm)
+[Set Up VM](https://github.com/bryceshirley/Benchmark_Dockerfiles?tab=readme-ov-file#set-up-vm)
 
-[Build and Run Containers for Benchmarks](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#build-and-run-containers-for-benchmarks)
+[Build and Run Containers for Benchmarks](https://github.com/bryceshirley/Benchmark_Dockerfiles?tab=readme-ov-file#build-and-run-containers-for-benchmarks)
 
-[Benchmark and GPU Performance Results](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#benchmark-and-gpu-performance-results)
+[Benchmark and GPU Performance Results](https://github.com/bryceshirley/Benchmark_Dockerfiles?tab=readme-ov-file#benchmark-and-gpu-performance-results)
 
 -----------
 
