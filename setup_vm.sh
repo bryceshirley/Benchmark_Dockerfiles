@@ -2,8 +2,9 @@
 
 
 ##### INSTALL OFFICAL DOCKER #####
-# Update package list
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nINSTALL OFFICAL DOCKER/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
+
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -19,17 +20,15 @@ echo \
 sudo apt-get update
 
 # Install Docker
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 
 ##### INSTALL docker-nvidia #####
 
-# Update package list again
-sudo apt update
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nINSTALL docker-nvidia/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
 
 # Install NVIDIA Docker (if using NVIDIA GPUs)
-#echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+sudo apt update
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
    && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
@@ -43,6 +42,10 @@ sudo systemctl restart docker
 sudo systemctl start docker-desktop
 sudo systemctl enable docker-desktop
 
+##### Add USR to Docker Group #####
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nAdd USR to Docker Group/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
+
 # Add your user to the Docker group
 USR=$(whoami)
 sudo groupadd docker
@@ -51,8 +54,16 @@ sudo usermod -aG docker $USR
 # Restart Docker to apply changes
 sudo systemctl restart docker
 
+##### INSTALL NVIDIA DRIVERS #####
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nINSTALL NVIDIA DRIVERS/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
+
 # Install NVIDIA drivers (if needed)
 sudo apt install -y nvidia-driver-535
+
+##### REBOOT VM #####
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nREBOOT/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
 
 # Reboot the system to finish setup
 sudo reboot
