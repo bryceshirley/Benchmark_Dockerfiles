@@ -16,7 +16,7 @@ To run the benchmark Dockerfiles you must setup the VM first:
 
 1. **Install Docker**
 
-```
+```bash
 sudo apt update
 sudo apt install -y docker.io
 sudo systemctl start docker
@@ -25,7 +25,7 @@ sudo systemctl enable docker
 
 2. **Install Nvidia-Docker (CHECK THIS IS CORRECT)**
 
-```
+```sh
 # Add the NVIDIA Docker repository
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
@@ -39,7 +39,7 @@ sudo systemctl restart docker
 
 3. **Add USR to docker-user-group**
 
-```
+```sh
 USR=$(whoami)
 sudo groupadd docker
 sudo usermod -aG docker $USER
@@ -47,13 +47,13 @@ sudo usermod -aG docker $USER
 
 4. **Install Nvidia Drivers**
 
-```
+```bash
 sudo apt install nvidia-driver-535 -y
 ```
 
 5. **Reboot VM to Finish Setup**
 
-```
+```bash
 sudo reboot
 ```
 
@@ -64,7 +64,7 @@ sudo reboot
 1. **Build Benchmark Images**
 
 To build all the benchmark images run:
-```
+```bash
 ./build_images.sh
 ```
 This will build the images for all the benchmarks available on this repo.
@@ -73,7 +73,7 @@ This will build the images for all the benchmarks available on this repo.
 
 To run Benchmark Containers use the ``./run_container`` bash script:
 
-```
+```bash
 Usage: ./run_container <benchmark>
 Available benchmarks:
     synthetic_regression 
