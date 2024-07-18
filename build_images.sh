@@ -15,6 +15,8 @@ echo "Building synthetic_regression image..."
 docker build -t synthetic_regression -f Dockerfiles/Dockerfile.synthetic_regression .
 
 # Build stemdl_classification image using sciml_base as base
+echo "Building stemdl_classification image..."
+docker build -t stemdl_classification -f Dockerfiles/Dockerfile.stemdl_classification .
 
 # Build slstr_cloud image using sciml_base as base
 
