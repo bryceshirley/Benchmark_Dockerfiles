@@ -1,5 +1,12 @@
 # Benchmark_Dockerfiles
 
+### Table of Contents
+[Set Up VM](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#set-up-vm)
+[Build and Run Containers for Benchmarks](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#build-and-run-containers-for-benchmarks)
+[Benchmark and GPU Performance Results](https://https://github.com/bryceshirley/Benchmark_Dockerfiles#benchmark-and-gpu-performance-results)
+
+-----------
+
 ## Set Up VM
 
 To run the benchmark Dockerfiles you must setup the VM first:
@@ -47,6 +54,8 @@ sudo apt install nvidia-driver-535 -y
 sudo reboot
 ```
 
+-----------
+
 ## Build and Run Containers for Benchmarks
 
 1. **Build Benchmark Images**
@@ -66,6 +75,8 @@ Usage: ./run_container <benchmark>
 Available benchmarks:
     synthetic_regression 
 ```
+
+-----------
 
 ## Benchmark and GPU Performance Results
 
