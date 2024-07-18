@@ -46,3 +46,34 @@ sudo apt install nvidia-driver-535 -y
 ```
 sudo reboot
 ```
+
+## Build and Run Containers for Benchmarks
+
+1. **Build Benchmark Images**
+
+To build all the benchmark images run:
+```
+./build_images.sh
+```
+This will build the images for all the benchmarks available on this repo.
+
+2. **Run Benchmark Containers**
+
+To run Benchmark Containers use the ``./run_container`` bash script:
+
+```
+Usage: ./run_container <benchmark>
+Available benchmarks:
+    synthetic_regression 
+```
+
+## Benchmark and GPU Performance Results
+
+The results can be found in ``/Benchmark_Dockerfiles/results_<benchmark>``.
+
+The results for the Benchmark includes the Benchmark Specific Results but also
+GPU monitoring results; GPU power/energy usage, GPU utilization and real-time
+GPU carbon emissions from the benchmark run.
+
+For more information about the GPU monitoring tool used please visit:
+<https://github.com/bryceshirley/gpu_benchmark_metrics>
