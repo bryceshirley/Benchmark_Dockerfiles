@@ -19,7 +19,7 @@ DESTINATION_PATH="/home/$CURRENT_USR/Benchmark_Dockerfiles/results_$BENCHMARK"
 
 
 # Run the Benchmark in the container
-docker run --name $CONTAINER_NAME --gpus all $IMAGE_NAME:latest
+docker run --shm-size=2g --name $CONTAINER_NAME --gpus all $IMAGE_NAME:latest
 
 # Check if the container exists
 if ! docker ps -a --filter name=$CONTAINER_NAME --format '{{.Names}}' | grep -q $CONTAINER_NAME; then
