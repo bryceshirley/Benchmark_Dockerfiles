@@ -44,6 +44,8 @@ Available benchmarks:
     mnist_tf_keras 
 ```
 
+``stemdl_classification`` use a forked branch (Fixed-Bryce) versions of sciml-bench to fix version and dependency issues.
+
 -----------
 
 ## Benchmark and GPU Performance Results
