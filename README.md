@@ -1,4 +1,4 @@
-# Benchmark Dockerfiles
+# GPU Benchmark Dockerfiles
 
 -----------
 ### Table of Contents
@@ -39,7 +39,9 @@ To run Benchmark Containers use the ``./run_container`` bash script:
 ```bash
 Usage: ./run_container <benchmark>
 Available benchmarks:
-    synthetic_regression 
+    synthetic_regression
+    stemdl_classification(1 or more GPUs)
+    mnist_tf_keras 
 ```
 
 -----------
