@@ -44,7 +44,7 @@ Available benchmarks:
     mnist_tf_keras 
 ```
 
-``stemdl_classification`` use a forked branch (Fixed-Bryce) versions of sciml-bench to fix version and dependency issues.
+``stemdl_classification`` use a forked branch (Fixed-Bryce) versions of sciml-bench to fix version and dependency issues. It works for more than one GPU but at the moment you must change the option in Dockerfile.stemdl_classification from "-b gpus 1" to "-b gpus 2" or more before building the image. For 2 or more GPUs, the GPU performance monitoring support multiple GPUs yet, hence the [gpu_benchmark_metrics](https://github.com/bryceshirley/gpu_benchmark_metrics) github needs updating to support multi-gpu.
 
 -----------
 
