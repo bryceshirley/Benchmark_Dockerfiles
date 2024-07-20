@@ -66,4 +66,5 @@ For more information about the GPU monitoring tool used please visit:
 ## Work To Do
 - Make stemdl_classification dockerfile check how much gpus are available and then choose the max amount.
 - using shell check from bash script (similar to pylint) on bash script
+- Integrate into gpu_monitoring tool instead of cloning it???
 - Integrate into meerkat
