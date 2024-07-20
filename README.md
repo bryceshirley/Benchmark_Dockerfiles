@@ -58,3 +58,10 @@ GPU carbon emissions from the benchmark run.
 
 For more information about the GPU monitoring tool used please visit:
 [https://github.com/bryceshirley/gpu_benchmark_metrics](https://github.com/bryceshirley/gpu_benchmark_metrics#gpu-energy-and-carbon-performance-benchmarking)
+
+-----------
+
+## Work To Do
+- Make stemdl_classification dockerfile check how much gpus are available and then choose the max amount.
+- using shell check from bash script (similar to pylint) on bash script
+- Integrate into meerkat
