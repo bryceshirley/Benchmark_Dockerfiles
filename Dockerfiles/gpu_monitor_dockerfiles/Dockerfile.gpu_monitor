@@ -4,19 +4,8 @@ FROM gpu_base:latest
 # Set the working directory
 WORKDIR /root
 
-# Set non-interactive frontend for apt-get
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Install required dependencies
-RUN apt-get update && \
-    apt-get install -y wget python3-pip tmux jq
-    apt-get clean
-
-# Install yq (if needed, adjust based on availability)
-RUN pip install yq
-
-# Set the TERM environment variable
-ENV TERM=xterm
-
 # Clone the GPU Performance Repo
-RUN /bin/bash -c "git clone https://github.com/bryceshirley/gpu_benchmark_metrics.git"
+RUN /bin/bash -c "git clone https://github.com/bryceshirley/gpu_benchmark_metrics.git && \
+    cd gpu_benchmark_metrics && \
+    git switch victoriametrics_and_python_package && \
+    pip install ."

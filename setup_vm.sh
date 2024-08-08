@@ -54,6 +54,17 @@ sudo usermod -aG docker $USR
 # Restart Docker to apply changes
 sudo systemctl restart docker
 
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nInstall python3-pip/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
+
+# Install python
+sudo apt-get install -y wget python3-pip
+
+echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nInstall docker-compose/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
+
+# Install docker-compose
+pip3 install docker-compose
+
 ##### INSTALL NVIDIA DRIVERS #####
 
 echo -e "/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/nINSTALL NVIDIA DRIVERS/n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/n"
