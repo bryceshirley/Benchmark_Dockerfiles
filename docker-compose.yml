@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  gpu_monitor:
+    build:
+      context: ./gpu_monitor
+    volumes:
+      - ./results:/app/results
+    environment:
+      - LIVE_MONITOR=${LIVE_MONITOR}
+      - INTERVAL=${INTERVAL}
+      - CARBON_REGION=${CARBON_REGION}
+      - PLOT=${PLOT}
+      - LIVE_PLOT=${LIVE_PLOT}
+      - EXPORT_TO_VICTORIA=${EXPORT_TO_VICTORIA}
+    tty: true
+
+  benchmark:
+    image: ${BENCHMARK_IMAGE}
+    volumes:
+      - /tmp/Results:/tmp/Results
+    tty: true
+
+

@@ -10,4 +10,4 @@ RUN /bin/bash -c "source /root/anaconda3/bin/activate bench && \
     sciml-bench download stemdl_ds1"
 
 # Set the entrypoint to run the benchmark
-ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && cd /root/gpu_benchmark_metrics/ && ./monitor.sh '-b epochs 1 stemdl_classification' --plot"]
+ENTRYPOINT ["/bin/bash", "-c", "source /root/anaconda3/bin/activate bench && sciml_bench --output_dir=/root/results/ -b epochs 1 -gpus 2 stemdl_classification"]
